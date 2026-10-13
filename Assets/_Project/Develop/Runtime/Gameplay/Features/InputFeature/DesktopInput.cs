@@ -19,5 +19,18 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.InputFeature
                 return new Vector3(Input.GetAxisRaw(HorizontalAxisName), 0, Input.GetAxisRaw(VerticalAxisName));
             }
         }
+
+        public Vector3 MouseDirection
+        {
+            get
+            {
+                if (IsEnabled == false)
+                    return Vector3.zero;
+
+                return new Vector3(Input.GetAxis("Mouse X"), 0, Input.GetAxis("Mouse Y"));
+            }
+        }
+
+        public bool FireButtonDown => Input.GetKeyDown(KeyCode.Mouse0);
     }
 }
